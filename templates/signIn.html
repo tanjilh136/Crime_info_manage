@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" href="{% static 'img/Icon.png' %}" type="image/x-icon">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <title> Sign In </title>
+
+
+  <!-- Bootstrap -->
+  <link href="{% static 'vendors/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome -->
+  <link href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+  <!-- NProgress -->
+  <link href="{% static 'vendors/nprogress/nprogress.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Animate.css -->
+  <link href="{% static 'vendors/animate.css/animate.min.css' %}" rel="stylesheet" type="text/css" />
+
+  <!-- Custom Theme Style -->
+  <link href="{% static 'build/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="login">
+  <div>
+    <a href="{% url 'index' %}"><img src="{% static 'img/logo home.png' %}" alt="logo" width="150px" height="104px"
+        style="padding: 10px;"></a>
+    <div class="menu">
+      <ul>
+        <li> <a href="{% url 'index' %}" style="color:rgb(92, 92, 92);background-color: bisque;"><b><i>Home</i></b></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="login-text" style="margin: 0 auto">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login_wrapper">
+      <div class="animate form login_form">
+        <section class="login_content">
+          <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+
+            <h1>Login Form</h1>
+            <div>
+              <input type="text" class="form-control" name="username" placeholder="User Name" />
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" name="password" />
+            </div>
+            <!-- <div style="text-align: left;">
+                <h3>Use As</h3> 
+                <input type="radio" id="Ciivil" name="Civilian" value="Civilian">
+                <label for="Ciivil">Civilian</label><br>
+                <input type="radio" id="defence" name="defence" value="Defence">
+                <label for="defence">Defence</label>
+              </div> -->
+            <div>
+              <input type="submit" name="login" class="btn btn-default submit" value="Login" />
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="separator">
+              <p class="change_link">New to site?
+                <a href="#signup" class="to_register"> Sign Up </a>
+              </p>
+
+              <div class="clearfix"></div>
+              <br />
+
+
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <div id="register" class="animate form registration_form">
+        <section class="login_content">
+          <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <h1>Create Account</h1>
+            <div>
+              <input type="text" class="form-control" placeholder="First Name" name="first_name" />
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="Last Name" name="last_name" />
+            </div>
+            <div>
+              <input type="text" class="form-control" placeholder="User Name" name="username" />
+            </div>
+            <!-- <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
+              <div class="btn-group col-md-6 col-sm-6 col-xs-12">
+                <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i
+                    class="fa fa-picture-o"></i></a>
+                <input type="file" data-role="magic-overlay" name="image" data-target="#pictureBtn"
+                  data-edit="insertImage" />
+              </div>
+            </div> -->
+            <div>
+              <input type="email" class="form-control" placeholder="Email" name="email" />
+            </div>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" name="password" />
+            </div>
+            <div>
+            <input type="password" class="form-control" placeholder="Confirm Password" name="password2" />
+            </div>
+              <!-- <div>
+                <label for="usertype">Choose a User Type</label>
+                <select id="usertype" name="usertype">
+                  <option value="volvo">Civilian</option>
+                  <option value="saab">Defence</option>                  
+                </select>
+              </div> -->
+      <div>
+        <button type="submit" name="register" class="btn btn-default submit"> Register </button>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="separator">
+        <p class="change_link">Already a member ?
+          <a href="#signin" class="to_register"> Log in </a>
+        </p>
+
+        <div class="clearfix"></div>
+        <br />
+
+      </div>
+      </form>
+      </section>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

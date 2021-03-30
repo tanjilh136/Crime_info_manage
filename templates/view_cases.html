@@ -1,0 +1,53 @@
+{% extends 'extra/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-body">
+
+            <div class="container">
+                <h1>Complaint's Information: </h1> 
+                <h1>Name: {{ obj.cName }}</h1>
+                <h1>Road_Block_Sector: {{ obj.cRoad_Block_Sector }}</h1>
+                <h1>City_Village_House: {{ obj.cCity_Village_House }}</h1>
+                <h1>Post_Office: {{ obj.cPost_Office }}</h1>
+                <h1>Postal_Code: {{ obj.cPostal_Code }}</h1>
+                <h1>District: {{ obj.cDistrict }}</h1>
+                <h1>Police_Station: {{ obj.cPolice_Station }}</h1>
+                <h1>Country: {{ obj.cCountry }}</h1>
+                <br>
+                <h1>Crime: {{ obj.Choose_Crime }}</h1>
+                <h1>Time: {{ obj.Time }}</h1>
+                <h1>Crime_Descrip: {{ obj.Crime_Descrip }}</h1>
+                <br>
+                <h1>Suspect's Information: </h1> 
+                <h1>Name: {{ obj.sName }}</h1>
+                <h1>Road_Block_Sector: {{ obj.sRoad_Block_Sector }}</h1>
+                <h1>City_Village_House: {{ obj.sCity_Village_House }}</h1>
+                <h1>Post_Office: {{ obj.sPost_Office }}</h1>
+                <h1>Postal_Code: {{ obj.sPostal_Code }}</h1>
+                <h1>District: {{ obj.sDistrict }}</h1>
+                <h1>Police_Station: {{ obj.sPolice_Station }}</h1>
+                <h1>Country: {{ obj.sCountry }}</h1>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

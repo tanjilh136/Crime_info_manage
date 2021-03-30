@@ -1,0 +1,166 @@
+{% extends 'extra/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div>
+    <a href="{% url 'index' %}"><img src="{% static 'img/logo home.png' %}" alt="logo" width="150px" height="104px"
+            style="padding: 10px;"></a>
+    <div class="menu">
+        <ul>
+            <li> <a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'searchh' %}">Search A Crime</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="nav2">
+    <ul>
+        <li>
+            <div class="nav3">
+                <ul>
+                    <li><a href="#comp">Complaint's Information(অভিযোগকারীর তথ্য)</a></li><br>
+                    <li><a href="#crimed">Case's Details(ঘটনার বিবরণ)</a></li><br>
+                    <li><a href="#sus">Suspect's Information(সন্দেহভাজনের বিবরণী)</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="form1">
+                {% csrf_token %}
+                <form action="" id="comp" method="post" action="{% url 'filee' %}">
+                    {% csrf_token %}>
+                    <h2><b> <i>Complaint's Information(অভিযোগকারীর বিবরণী)</i> </b></h2>
+                    <table>
+                        <tr>
+                            <td><label for="">Name(অভিযোগকারীর) :</label></td>
+                            <td><input type="text" placeholder="Full Name" name="cName" /></td>
+
+                        </tr>
+                        <tr>
+                            <td><label for="">Adress(ঠিকানা)</label></td>
+
+                        </tr>
+                        <tr>
+                            <td><label for="">Road/Block/Sector</label></td>
+                            <td><input type="text" placeholder="Road/Block/Sector" name="cRoad_Block_Sector"></td>
+                            <td><label for="">City/Village/House</label></td>
+                            <td><input type="text" placeholder="City/Village/House" name="cCity_Village_House"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Post Office</label></td>
+                            <td><input type="text" placeholder="Post Office" name="cPost_Office"></td>
+                            <td><label for="">Postal Code</label></td>
+                            <td><input type="text" placeholder="Postal Code" name="cPostal_Code"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Distric</label></td>
+                            <td><input type="text" placeholder="Distric" name="cDistrict"></td>
+                            <td><label for="">Police Station</label>
+                            <td><input type="text" placeholder="Police Station" name="cPolice_Station"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Country</label></td>
+                            <td><input type="text" placeholder="Country" name="cCountry" /></td>
+                        </tr>
+
+                    </table>
+                <!-- </form> -->
+                <br>
+
+
+                <!-- <form action="" id="crimed"> -->
+                    <h2><b> <i>Case's Details(ঘটনার বিবরণ)</i> </b></h2>
+                    <td><input type="text" placeholder="Full Name" name="sName" /></td>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="">Choose Crime Type</label>
+                                <select id="" name="Choose_Crime" width="400px" style="color: cornflowerblue;">
+                                    <option value="volvo" style="font-size: 16px;">Murder</option>
+                                    <option value="saab" style="font-size: 16px;">Attemp to Murder</option>
+                                    <option value="volvo" style="font-size: 16px;">Domestic Abuse</option>
+                                    <option value="volvo" style="font-size: 16px;">Child Abuse</option>
+                                    <option value="volvo" style="font-size: 16px;">Roberry</option>
+                                    <option value="volvo" style="font-size: 16px;">Fraud</option>
+                                    <option value="volvo" style="font-size: 16px;">Hate Crime</option>
+                                    <option value="volvo" style="font-size: 16px;">Harrasement</option>
+                                    <option value="volvo" style="font-size: 16px;">Sexual Harrasement</option>
+                                    <option value="volvo" style="font-size: 16px;">Rape/Sexual Assualt</option>
+                                    <option value="volvo" style="font-size: 16px;">Violent Crime</option>
+                                    <option value="volvo" style="font-size: 16px;">Terrorism</option>
+                                    <option value="volvo" style="font-size: 16px;">Anti-Social Behaviour</option>
+                                    <option value="volvo" style="font-size: 16px;">Theft</option>
+                                    <option value="volvo" style="font-size: 16px;">Cyber Crime / Online Fraud</option>
+                                </select>
+                                <label for="">Date of Casing The File:</label>
+                                <input type="date" id="" name="Time" style="color: cornflowerblue;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="">Crime Description</label><br>
+                                <textarea rows="20" cols="100" name="Crime_Descrip" form=""
+                                    style="border: 4px solid black; border-radius: 6px; text-align: left;color: black;">
+                                                Type here...........
+                                            </textarea>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                    <!-- </form> -->
+                <br>
+
+
+                <!-- <form action="" id="sus"> -->
+                    <h2><b> <i>Suspect's Information(সন্দেহভাজনের বিবরণী)</i> </b></h2>
+                    <table>
+                        <tr>
+                            <td><label for="">Name(অপরাধির নাম) :</label></td>
+                            <td><input type="text" placeholder="Full Name" name="sName" /></td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Adress(ঠিকানা)</label></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Road/Block/Sector</label></td>
+                            <td><input type="text" placeholder="Road/Block/Sector" name="sRoad_Block_Sector"></td>
+                            <td><label for="">City/Village/House</label></td>
+                            <td><input type="text" placeholder="City/Village/Hous" name="sCity_Village_House"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Post Office</label></td>
+                            <td><input type="text" placeholder="Post Office" name="sPost_Office"></td>
+                            <td><label for="">Postal Code</label></td>
+                            <td><input type="text" placeholder="Postal Code" name="sPostal_Code"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Distric</label></td>
+                            <td><input type="text" placeholder="Distric" name="sDistrict"></td>
+                            <td><label for="">Police Station</label>
+                            <td><input type="text" placeholder="Police Station" name="sPolice_Station"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Country</label></td>
+                            <td><input type="text" placeholder="Country" name="sCountry" /></td>
+                        </tr>
+
+                    </table>
+
+                    <input type="submit" name="Submit" class="btn btn-default submit" value="Submit" />
+
+
+                </form>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+{% endblock %}

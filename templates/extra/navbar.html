@@ -1,0 +1,52 @@
+{% load static %}
+
+<style>
+.hello{
+font-size: 18px;
+color: antiquewhite;
+margin-right: 20px;
+
+}
+</style>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="{% static 'img/logo logo.ico' %}" alt="MW">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        {% if request.user.is_active %}
+        <li class="nav-item active">
+            <span class="hello"><a class="nav-link" href="{% url 'index' %}">Home </a></span>
+        </li>
+        <li class="nav-item">
+            <span class="hello"><a class="nav-link" href="{% url 'searchh' %}">Search Crime</a></span>
+        </li>
+        <li class="nav-item">
+            <span class="hello"><a class="nav-link" href="{% url 'filee' %}">File a Crime</a></span>
+        </li>
+  
+
+
+
+        {% endif %}
+
+      </ul>
+    </div>
+    {% if request.user.is_authenticated %}
+
+    <span class="hello">Hello, {{ request.user }} </span>
+
+    <span class="hello"><a href="{% url 'logout' %}">Logout</a></span>
+
+    {% else %}
+    
+    <span class="hello"><a class="nav-link" href="{% url 'login' %}">sign In/Up</a></span>
+    
+
+    {% endif %}
+
+  </nav>

@@ -1,0 +1,66 @@
+
+{% extends 'extra/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+				{{ myFilter.form}}
+
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+                    <th>Complaint's Name</th>
+					<th>Complaint's District</th>
+					<th>Suspect's Name</th>
+					<th>>Suspect's City_Village_House</th>
+					<th>Suspect's District</th>
+					<th>Date</th>
+					<th>Choose_Crime</th>
+                    <th>details</th>
+
+				</tr>
+				{% for f in filee %}
+
+				<tr>
+					<td> {{f.cName}} </td>
+					<td> {{f.cDistrict}} </td>
+					<td> {{f.sName}} </td>
+					<td> {{f.sCity_Village_House}} </td>
+                    <td> {{f.sDistrict}} </td>
+					<td> {{f.Time}} </td>
+					<td> {{f.sDistrict}} </td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'detail' f.id %}"> Detail </a></td>
+
+
+				</tr>
+
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}
